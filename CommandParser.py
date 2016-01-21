@@ -42,7 +42,10 @@ def main(argv):
             calculate_gc(seq, name)
             find_kmer(seq, k_mer)
 
-
+   print "Creating Output File"
+   file = open("Output.gff3", 'w')
+   file.write('{0}   {1}   '.format (chromo_name, "Lincoln Samelson") )
+   file.close()
 
 
 def read_file(filename):
@@ -57,13 +60,14 @@ def read_file(filename):
 
    if name: yield (name, ''.join(seq))
    seq = str(seq)
-   name
+
 
 
 
 def calculate_gc(seq, name):
    seq = seq.upper()
    total = len(seq)
+   print total
    C = seq.count("C")
    C = float(C)
    G = seq.count("G")
@@ -79,7 +83,15 @@ def calculate_gc(seq, name):
 
 
 def find_kmer(seq, kmer):
-    print seq.find(kmer)
+   location = []
+   start = 1
+   while True:
+      start = seq.find(kmer, start)
+      if start == -1: return
+      print "Start location ", start
+      print "End location ", start + len(kmer)
+      start += 1
+
 
 
 if __name__ == "__main__":
