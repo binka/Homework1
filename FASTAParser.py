@@ -5,7 +5,7 @@ from decimal import *
 import getopt, sys
 
 
-def Usage():
+def main():
     # Here is where you print the usage of this application
     print "\nApplication: %s\n%s [options] -f <filename> -c <chromo name> -k <k-mer>     \n" \
           "     To illustrate the how to parse the command line    \n\n" \
